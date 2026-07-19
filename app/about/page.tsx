@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { Cpu, Code2, Database, Award } from "lucide-react";
+import { Cpu, Code2, Database } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import GlassCard from "@/components/GlassCard";
 import Button from "@/components/Button";
-import Image from "next/image";
+import { img } from "@/utils/imagePath";
 
 export default function About() {
   const skills = [
@@ -48,12 +48,10 @@ export default function About() {
 
         <div className="lg:col-span-4 flex justify-center">
           <div className="relative w-64 h-64 rounded-2xl overflow-hidden border border-glass shadow-xl group">
-            <Image
-              src="/images/profile.jpg"
+            <img
+              src={img("/images/profile.jpg")}
               alt="Swasthik K Shetty"
-              fill
-              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              priority
+              className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent opacity-65" />
           </div>
