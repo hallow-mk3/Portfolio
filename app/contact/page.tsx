@@ -53,7 +53,7 @@ export default function Contact() {
             
             <div className="space-y-4">
               <a
-                href="mailto:hello@swasthik.dev"
+                href="mailto:swasthik.mk3@gmail.com"
                 className="flex items-center gap-3 text-text-secondary hover:text-text-primary transition-colors duration-300 group"
               >
                 <span className="p-2 bg-bg-tertiary border border-glass rounded group-hover:border-text-primary transition-colors duration-300">
@@ -61,7 +61,7 @@ export default function Contact() {
                 </span>
                 <div className="text-sm">
                   <p className="text-[10px] text-text-tertiary font-mono uppercase">Email</p>
-                  <p className="font-medium text-xs sm:text-sm">hello@swasthik.dev</p>
+                  <p className="font-medium text-xs sm:text-sm">swasthik.mk3@gmail.com</p>
                 </div>
               </a>
 
