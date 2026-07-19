@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { achievements } from "@/data/projects"; // We will pull from data/achievements.ts below
 import { achievements as allAchievements } from "@/data/achievements";
 import SectionHeading from "@/components/SectionHeading";
 import CertificateGallery from "@/components/CertificateGallery";
