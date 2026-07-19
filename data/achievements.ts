@@ -43,7 +43,7 @@ export const achievements: Achievement[] = [
     category: "award",
     description: "Selected for the prestigious INSPIRE Award MANAK and received a ₹10,000 grant from the Department of Science and Technology, Government of India for project development.",
     date: "2025-2026",
-    image: "/images/nasa-boarding-pass.jpeg", // We use a fallback if no specific certificate is there
+    image: "/images/indian-flag.png",
     issuer: "Government of India (DST)"
   },
   {
