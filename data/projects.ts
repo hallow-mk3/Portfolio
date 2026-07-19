@@ -8,51 +8,63 @@ export interface Project {
   role: string;
   year: string;
   featured: boolean;
+  status: "active" | "development" | "planning";
+  details?: string[];
 }
 
 export const projects: Project[] = [
   {
-    id: "hallow-os",
-    title: "AetherOS",
-    description: "A fully sandboxed, web-based operating system built with WebAssembly, Rust, and Next.js. Features real-time multi-threading, custom window manager, and dynamic filesystem mapping.",
-    tags: ["Next.js", "WebAssembly", "Rust", "TypeScript", "Tailwind CSS"],
-    link: "https://aether-os.swasthik.dev",
-    github: "https://github.com/swasthik/aether-os",
-    role: "Lead Architect",
+    id: "astronomy-club",
+    title: "Astronomy Club Website",
+    description: "An immersive space club dashboard under development featuring an event calendar, official space agency missions, discovery timeline, and interactive member directory.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "NASA API", "Framer Motion"],
+    link: "https://astronomy.swasthik.dev",
+    github: "https://github.com/hallow-mk3/astronomy-club",
+    role: "Lead Creator",
     year: "2026",
     featured: true,
+    status: "development",
+    details: [
+      "Dynamic Event Calendar for club gatherings and star gazing sessions",
+      "Interactive Member Page displaying member roles and profiles",
+      "Dynamic Space Agency Discoveries & upcoming mission scheduler",
+      "Integrated Live Photo Gallery pulling space exploration feeds"
+    ]
   },
   {
-    id: "helios-render",
-    title: "Helios Engine",
-    description: "A high-performance, real-time physically based web rendering engine utilizing WebGPU. Achieves cinema-grade global illumination and volumetrics directly in the browser.",
-    tags: ["WebGPU", "TypeScript", "WGSL", "Shaders", "Math"],
-    link: "https://helios.swasthik.dev",
-    github: "https://github.com/swasthik/helios-engine",
-    role: "Graphics Engineer",
+    id: "space-explorer",
+    title: "Space Explorer",
+    description: "A space visualization tool facilitating ISS pass prediction across cities, James Webb Space Telescope explorer, Asteroid tracking, and Astronomy Picture of the Day educational content.",
+    tags: ["React", "CSS Variables", "Leaflet", "NASA API", "W3C Geolocation"],
+    link: "https://space.swasthik.dev",
+    github: "https://github.com/hallow-mk3/space-explorer",
+    role: "Sole Creator",
     year: "2025",
     featured: true,
+    status: "active",
+    details: [
+      "ISS Orbit & pass predictions utilizing satellite coordinate models",
+      "High-resolution JWST Explorer mapping recent images with scientific explanation overlays",
+      "Asteroid Approach Tracker graphing celestial distance and velocity metrics",
+      "Educative APOD dashboard complete with astronomy terminology parsing"
+    ]
   },
   {
-    id: "nexus-db",
-    title: "Nexus DB",
-    description: "A distributed, local-first document store for collaborative applications. Syncs automatically via CRDTs over WebRTC and backs up to IPFS, ensuring zero-latency offline performance.",
-    tags: ["React", "TypeScript", "CRDTs", "WebRTC", "IndexedDB"],
-    link: "https://nexus-db.swasthik.dev",
-    github: "https://github.com/swasthik/nexus-db",
-    role: "Creator & Maintainer",
-    year: "2025",
-    featured: true,
-  },
-  {
-    id: "spectre-ai",
-    title: "Spectre AI",
-    description: "A lightweight, local-first LLM orchestrator running directly on browser hardware. Utilizes WebGPU acceleration to execute custom model chains under 5ms inference latency.",
-    tags: ["Next.js", "ONNX Runtime", "WebGPU", "AI", "Tailwind CSS"],
-    link: "https://spectre.swasthik.dev",
-    github: "https://github.com/swasthik/spectre-ai",
-    role: "AI Engineer",
+    id: "entropy",
+    title: "Entropy",
+    description: "A community platform hosting hackathons, issuing automated virtual certificates, sharing famous scientist papers, self-paced teaching workshops, and streak-based badges.",
+    tags: ["Next.js", "MongoDB", "Tailwind CSS", "PDFKit", "JWT"],
+    link: "https://entropy.swasthik.dev",
+    github: "https://github.com/hallow-mk3/entropy",
+    role: "Founder & Developer",
     year: "2026",
-    featured: false,
+    featured: true,
+    status: "active",
+    details: [
+      "Gamified streak system complete with badges and daily login verification",
+      "Self-paced Teaching Workshop platform hosting computer science challenges",
+      "Scientist & Student Research Papers archival network",
+      "Hackathon Leaderboards with automated virtual certificate generation using PDF canvas"
+    ]
   }
 ];
