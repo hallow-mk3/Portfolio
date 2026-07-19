@@ -1,130 +1,103 @@
+"use client";
+
 import React from "react";
-import { ArrowUpRight, Cpu, Code2, Database, ShieldAlert, Award } from "lucide-react";
+import { Cpu, Code2, Database, Award } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
+import GlassCard from "@/components/GlassCard";
 import Button from "@/components/Button";
+import Image from "next/image";
 
 export default function About() {
   const skills = [
     {
       category: "Frontend Core",
-      items: ["Next.js (App Router)", "TypeScript", "React 19", "Tailwind CSS", "Redux Toolkit", "Framer Motion"],
-      icon: <Code2 className="w-4 h-4 text-[#FF2E63]" />,
+      items: ["Next.js (App Router)", "TypeScript", "React 19", "Tailwind CSS", "Framer Motion"],
+      icon: <Code2 className="w-4 h-4 text-text-primary" />,
     },
     {
-      category: "Systems & Backend",
-      items: ["Node.js", "Express", "Rust", "WebAssembly", "Go", "GraphQL", "REST APIs"],
-      icon: <Cpu className="w-4 h-4 text-[#FF2E63]" />,
+      category: "Languages & Tools",
+      items: ["Python", "JavaScript", "C / C++", "Git", "GitHub Actions"],
+      icon: <Cpu className="w-4 h-4 text-text-primary" />,
     },
     {
-      category: "Database & Cloud",
-      items: ["PostgreSQL", "MongoDB", "Redis", "Docker", "AWS (S3/EC2)", "Vercel", "Firebase"],
-      icon: <Database className="w-4 h-4 text-[#FF2E63]" />,
-    },
-  ];
-
-  const experiences = [
-    {
-      period: "2024 - Present",
-      role: "Senior Fullstack Engineer",
-      company: "Synthetix Labs",
-      description: "Spearheaded frontend re-architecture to Next.js 15, yielding a 40% page load optimization. Built high-performance real-time data visualizers using WebGL.",
-    },
-    {
-      period: "2022 - 2024",
-      role: "Software Architect",
-      company: "Quantum Tech",
-      description: "Led development of offline-first synchronizing engines using CRDTs. Established TypeScript and testing guidelines across three engineering units.",
-    },
-    {
-      period: "2020 - 2022",
-      role: "Backend Engineer",
-      company: "Novus AI",
-      description: "Optimized NLP processing pipelines in Go, decreasing inference coordination delays. Managed orchestration frameworks across Docker and Kubernetes clusters.",
+      category: "Data & Systems",
+      items: ["MongoDB", "REST APIs", "Local Storage", "Kaggle", "Data Structures"],
+      icon: <Database className="w-4 h-4 text-text-primary" />,
     },
   ];
 
   return (
-    <div className="space-y-16 py-8">
+    <div className="space-y-16 py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Intro section */}
-      <section className="space-y-6 max-w-3xl">
-        <h1 className="text-xs font-mono text-[#FF2E63] uppercase tracking-widest">ABOUT ME</h1>
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight font-display">
-          Building spaces where software meets refined design.
-        </h2>
-        <p className="text-zinc-400 text-base sm:text-lg leading-relaxed font-sans font-light">
-          I am Swasthik Shetty. I develop rendering engines, custom digital tools, and web structures. My work is driven by a deep interest in low-level systems, geometry, and functional simplicity.
-        </p>
-        <p className="text-zinc-400 text-base sm:text-lg leading-relaxed font-sans font-light">
-          Rather than compiling generic templates, I approach the web browser as an expansive canvas for high-performance applications. By integrating tools like Rust and WebAssembly alongside modern runtime systems, I aim to shape layouts that are fast, solid, and delightful to navigate.
-        </p>
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-8 space-y-6">
+          <SectionHeading
+            label="ABOUT ME"
+            title="Building tools for space, science, and education."
+            subtitle="I am Swasthik K Shetty, a 16-year-old creator (born January 30, 2010) focused on space exploration apps, educational platforms, and student community portals."
+          />
+          <div className="space-y-4 text-sm text-text-secondary leading-relaxed font-light">
+            <p>
+              I believe software is most powerful when it makes complex subjects like astronomy, data science, and physics accessible to anyone. From tracking asteroid approaches to organizing hackathons for students, I create interfaces that aim to inform and inspire.
+            </p>
+            <p>
+              By combining web technologies with open-source science APIs (like NASA's live feeds), I strive to build fast, responsive products. I also participate in platforms like Kaggle (including the Space Titanic competition) to sharpen my machine learning and data analysis skills.
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 flex justify-center">
+          <div className="relative w-64 h-80 rounded-2xl overflow-hidden border border-glass shadow-xl group">
+            <Image
+              src="/images/profile.jpg"
+              alt="Swasthik K Shetty"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent opacity-60" />
+          </div>
+        </div>
       </section>
 
       {/* Skills Grid */}
-      <section className="space-y-8 pt-8 border-t border-zinc-900">
-        <div>
-          <h2 className="text-xs font-mono text-[#FF2E63] uppercase tracking-widest mb-2">Technical Core</h2>
-          <h3 className="text-2xl font-bold text-white">Capabilities & Tools</h3>
-        </div>
+      <section className="space-y-8 pt-8 border-t border-glass">
+        <SectionHeading
+          label="TECHNICAL SKILLS"
+          title="Tools & Technologies"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills.map((skillGroup) => (
-            <div key={skillGroup.category} className="bg-[#0c0d11]/60 border border-zinc-900 p-6 rounded-xl flex flex-col gap-4">
+            <GlassCard key={skillGroup.category} className="p-6 flex flex-col gap-4" glow>
               <div className="flex items-center gap-2">
-                <span className="p-1.5 bg-zinc-900 border border-zinc-800 rounded">
+                <span className="p-1.5 bg-bg-tertiary border border-glass rounded">
                   {skillGroup.icon}
                 </span>
-                <h4 className="font-semibold text-white">{skillGroup.category}</h4>
+                <h4 className="font-semibold text-text-primary text-sm sm:text-base font-display">
+                  {skillGroup.category}
+                </h4>
               </div>
               <ul className="space-y-2 flex-grow">
                 {skillGroup.items.map((item) => (
-                  <li key={item} className="text-xs text-zinc-400 font-mono flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#FF2E63] rounded-full"></span>
+                  <li key={item} className="text-xs text-text-secondary font-mono flex items-center gap-2">
+                    <span className="w-1 h-1 bg-text-primary rounded-full"></span>
                     {item}
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlassCard>
           ))}
         </div>
       </section>
 
-      {/* Experience Timeline */}
-      <section className="space-y-8 pt-8 border-t border-zinc-900">
-        <div>
-          <h2 className="text-xs font-mono text-[#FF2E63] uppercase tracking-widest mb-2">Career Timeline</h2>
-          <h3 className="text-2xl font-bold text-white">Selected Experience</h3>
-        </div>
-
-        <div className="space-y-8">
-          {experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className="relative pl-6 sm:pl-8 border-l border-zinc-850 space-y-2 group"
-            >
-              {/* timeline point dot */}
-              <span className="absolute left-[-4.5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-800 border border-zinc-900 group-hover:bg-[#FF2E63] group-hover:border-[#FF2E63]/25 group-hover:scale-125 transition-all duration-300"></span>
-              
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div className="flex flex-wrap items-center gap-x-2">
-                  <h4 className="text-lg font-semibold text-white group-hover:text-[#FF2E63] transition-colors duration-300">{exp.role}</h4>
-                  <span className="text-xs text-zinc-500 font-mono">@ {exp.company}</span>
-                </div>
-                <span className="text-xs font-mono text-zinc-500">{exp.period}</span>
-              </div>
-              <p className="text-sm text-zinc-400 leading-relaxed max-w-3xl">
-                {exp.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CV Download / Contact */}
-      <section className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center gap-4">
-        <Button href="/resume.pdf" variant="primary" className="w-full sm:w-auto">
-          View Resume / CV
+      {/* Action / Next steps */}
+      <section className="pt-8 border-t border-glass flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href="/projects" variant="primary" className="w-full sm:w-auto text-xs">
+          Explore Projects
         </Button>
-        <Button href="/contact" variant="outline" className="w-full sm:w-auto gap-1">
-          Get in Touch <ArrowUpRight className="w-4 h-4" />
+        <Button href="/achievements" variant="outline" className="w-full sm:w-auto text-xs">
+          View Achievements
         </Button>
       </section>
     </div>
