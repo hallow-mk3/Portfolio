@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { Search } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,7 +24,7 @@ export default function ProjectsPage() {
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.role.toLowerCase().includes(searchQuery.toLowerCase());
-      
+
       const matchesTag = selectedTag ? project.tags.includes(selectedTag) : true;
 
       return matchesSearch && matchesTag;
@@ -31,31 +32,27 @@ export default function ProjectsPage() {
   }, [searchQuery, selectedTag]);
 
   return (
-    <div className="space-y-12 py-8">
-      
+    <div className="space-y-12 py-8 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Page Header */}
       <section className="space-y-4 max-w-3xl">
-        <h1 className="text-xs font-mono text-[#FF2E63] uppercase tracking-widest">PORTFOLIO</h1>
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
-          Selected engineering works.
-        </h2>
-        <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-          A showcase of full-stack products, systems tools, and experimental WebGPU rendering pipelines. Filter by tech stacks or search keywords.
-        </p>
+        <SectionHeading
+          label="PORTFOLIO"
+          title="Selected Engineering Works."
+          subtitle="A showcase of Space Apps, community tools, astronomy websites, and educational visualizations. Filter by tech stacks or search keywords."
+        />
       </section>
 
       {/* Filter and Search Bar */}
-      <section className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between pb-4 border-b border-zinc-900">
-        
+      <section className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between pb-6 border-b border-glass">
         {/* Search */}
         <div className="relative flex-grow max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-tertiary" />
           <input
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-sm bg-[#0c0d11] border border-zinc-900 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-700 focus:ring-1 focus:ring-zinc-700 transition-all duration-300"
+            className="w-full pl-10 pr-4 py-2.5 text-xs glass-input rounded-lg"
           />
         </div>
 
@@ -63,30 +60,29 @@ export default function ProjectsPage() {
         <div className="flex flex-wrap items-center gap-2 max-w-full overflow-x-auto no-scrollbar">
           <button
             onClick={() => setSelectedTag(null)}
-            className={`px-3 py-1.5 rounded-md text-xs font-mono border transition-all duration-300 ${
+            className={`px-3 py-1.5 rounded-md text-[10px] font-mono border transition-all duration-300 ${
               selectedTag === null
-                ? "bg-[#FF2E63] border-[#FF2E63] text-white"
-                : "bg-zinc-900 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-800"
+                ? "bg-text-primary border-text-primary text-bg-primary"
+                : "bg-bg-tertiary border-glass text-text-secondary hover:text-text-primary"
             }`}
           >
             All Stacks
           </button>
-          
+
           {allTags.map((tag) => (
             <button
               key={tag}
               onClick={() => setSelectedTag(tag)}
-              className={`px-3 py-1.5 rounded-md text-xs font-mono border transition-all duration-300 ${
+              className={`px-3 py-1.5 rounded-md text-[10px] font-mono border transition-all duration-300 ${
                 selectedTag === tag
-                  ? "bg-[#FF2E63] border-[#FF2E63] text-white"
-                  : "bg-zinc-900 border-zinc-850 text-zinc-400 hover:text-white hover:border-zinc-800"
+                  ? "bg-text-primary border-text-primary text-bg-primary"
+                  : "bg-bg-tertiary border-glass text-text-secondary hover:text-text-primary"
               }`}
             >
               {tag}
             </button>
           ))}
         </div>
-
       </section>
 
       {/* Projects Grid */}
@@ -96,12 +92,11 @@ export default function ProjectsPage() {
             <ProjectCard key={project.id} project={project} />
           ))
         ) : (
-          <div className="col-span-full py-16 text-center border border-dashed border-zinc-900 rounded-xl bg-zinc-900/10">
-            <p className="text-zinc-500 text-sm">No projects matching your filters.</p>
+          <div className="col-span-full py-16 text-center border border-dashed border-glass rounded-xl bg-glass-bg">
+            <p className="text-text-secondary text-sm">No projects matching your filters.</p>
           </div>
         )}
       </section>
-
     </div>
   );
 }
