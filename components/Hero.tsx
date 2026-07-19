@@ -2,60 +2,49 @@
 
 import React from "react";
 import Button from "./Button";
-import { ArrowDown, Copy, Check } from "lucide-react";
+import { ArrowDown, Github, Mail } from "lucide-react";
+import StarField from "./StarField";
 
 export default function Hero() {
-  const [copied, setCopied] = React.useState(false);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText("hello@swasthik.dev");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section className="relative pt-16 pb-12 sm:pb-20 flex flex-col items-start justify-center overflow-hidden">
-      {/* Cinematic grid overlay and glowing accent */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FF2E63]/5 rounded-full blur-[100px] pointer-events-none animate-pulse-glow" />
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden border border-glass rounded-3xl p-6 sm:p-12 mb-12">
+      {/* Background Star Canvas */}
+      <StarField />
 
-      <div className="relative z-10 max-w-4xl">
-        {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900/60 border border-zinc-800/80 text-[11px] text-zinc-400 font-mono mb-8 uppercase tracking-wider">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#FF2E63]"></span>
+      {/* Floating glass orbs background effect */}
+      <div className="absolute top-1/4 left-1/4 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-text-primary/5 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
+
+      <div className="relative z-10 max-w-4xl space-y-8 flex flex-col items-center">
+        {/* Monospace Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-glass bg-glass-bg text-[10px] font-mono tracking-[0.15em] uppercase text-text-secondary">
+          <span className="w-1.5 h-1.5 rounded-full bg-text-primary"></span>
           Personal Space / Creative Developer
         </div>
 
         {/* Title */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08] font-display">
-          Shaping digital spaces <br className="hidden sm:inline" />
-          with <span className="text-[#FF2E63] relative">aesthetic intent.</span>
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary font-display leading-[1.1] max-w-3xl">
+          Swasthik K Shetty
         </h1>
 
-        {/* Subtext */}
-        <p className="text-zinc-400 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed mb-12 font-sans font-light">
-          I am Swasthik Shetty. I design and build highly-detailed web architectures, graphics engines, and tools that live at the intersection of visual refinement and strict system performance.
+        {/* Subtitle */}
+        <p className="text-text-secondary text-sm sm:text-base lg:text-lg max-w-2xl leading-relaxed font-light font-sans">
+          A 16-year-old developer and space enthusiast building tools for Astronomy, Science, and Student Communities.
         </p>
 
         {/* Actions */}
-        <div className="flex flex-wrap items-center gap-4">
-          <Button href="/projects" className="gap-2">
+        <div className="flex flex-wrap justify-center items-center gap-3 w-full sm:w-auto pt-4">
+          <Button href="/projects" className="w-full sm:w-auto gap-2 text-xs py-3">
             Explore Projects <ArrowDown className="w-4 h-4" />
           </Button>
-          
-          <button
-            onClick={copyEmail}
-            className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-md border border-zinc-850 text-zinc-300 hover:text-white hover:bg-zinc-900/50 hover:border-zinc-700 transition-all duration-300 active:scale-95"
+
+          <a
+            href="https://github.com/hallow-mk3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-3 text-xs font-mono rounded-lg border border-glass bg-glass-bg hover:bg-glass-bg-hover text-text-primary transition-all duration-300"
           >
-            {copied ? (
-              <>
-                <Check className="w-4 h-4 text-emerald-400" /> Copied!
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4" /> hello@swasthik.dev
-              </>
-            )}
-          </button>
+            <Github className="w-4 h-4" /> @hallow-mk3
+          </a>
         </div>
       </div>
     </section>
