@@ -10,14 +10,19 @@ export default function GitHubActivity() {
   const rows = 7;
   const totalCells = columns * rows;
 
-  const cells = Array.from({ length: totalCells }).map(() => {
-    const val = Math.random();
-    if (val < 0.5) return 0; // empty
-    if (val < 0.75) return 1; // low
-    if (val < 0.9) return 2; // medium
-    if (val < 0.97) return 3; // high
-    return 4; // very high
-  });
+  const [cells, setCells] = React.useState<number[]>([]);
+
+  React.useEffect(() => {
+    const generated = Array.from({ length: totalCells }).map(() => {
+      const val = Math.random();
+      if (val < 0.5) return 0; // empty
+      if (val < 0.75) return 1; // low
+      if (val < 0.9) return 2; // medium
+      if (val < 0.97) return 3; // high
+      return 4; // very high
+    });
+    setCells(generated);
+  }, [totalCells]);
 
   const getLevelClass = (level: number) => {
     switch (level) {
@@ -60,7 +65,7 @@ export default function GitHubActivity() {
               <div key={colIdx} className="grid grid-rows-7 gap-1">
                 {Array.from({ length: rows }).map((_, rowIdx) => {
                   const cellIdx = colIdx * rows + rowIdx;
-                  const level = cells[cellIdx];
+                  const level = cells[cellIdx] || 0;
                   return (
                     <div
                       key={rowIdx}

@@ -41,17 +41,19 @@ export default function CertificateGallery({ items }: CertificateGalleryProps) {
                 </div>
               </div>
 
-              <div>
-                <span className="text-[10px] font-mono uppercase text-text-tertiary">
-                  {item.issuer || "Certificate"}
-                </span>
-                <h4 className="text-sm font-semibold text-text-primary mt-1 line-clamp-1">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-text-secondary mt-1.5 line-clamp-3">
-                  {item.description}
-                </p>
-              </div>
+              {item.id !== "inspire-manak" && (
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-text-tertiary">
+                    {item.issuer || "Certificate"}
+                  </span>
+                  <h4 className="text-sm font-semibold text-text-primary mt-1 line-clamp-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-text-secondary mt-1.5 line-clamp-3">
+                    {item.description}
+                  </p>
+                </div>
+              )}
             </div>
           </GlassCard>
         ))}

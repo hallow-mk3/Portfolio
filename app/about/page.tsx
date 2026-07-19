@@ -47,15 +47,15 @@ export default function About() {
         </div>
 
         <div className="lg:col-span-4 flex justify-center">
-          <div className="relative w-64 h-80 rounded-2xl overflow-hidden border border-glass shadow-xl group">
+          <div className="relative w-64 h-64 rounded-2xl overflow-hidden border border-glass shadow-xl group">
             <Image
               src="/images/profile.jpg"
               alt="Swasthik K Shetty"
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent opacity-65" />
           </div>
         </div>
       </section>
